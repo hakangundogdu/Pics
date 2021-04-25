@@ -1,22 +1,22 @@
 import React from 'react';
-import { makeStyles } from '@material-ui/core/styles';
-import TextField from '@material-ui/core/TextField';
 
-const useStyles = makeStyles((theme) => ({
-  root: {
-    '& > *': {
-      margin: theme.spacing(1),
-      width: '25ch',
-    },
-  },
-}));
+class SearchBar extends React.Component {
+  onInputChange(event) {
+    console.log(event.target.value);
+  }
 
-export default function BasicTextFields() {
-  const classes = useStyles();
-
-  return (
-    <form className={classes.root} noValidate autoComplete="off">
-      <TextField id="outlined-basic" label="Image Search" variant="outlined" />
-    </form>
-  );
+  render() {
+    return (
+      <div className="ui segment">
+        <form className="ui form">
+          <div className="field">
+            <label>Image Search</label>
+            <input type="text" onChange={this.onInputChange} />
+          </div>
+        </form>
+      </div>
+    );
+  }
 }
+
+export default SearchBar;
